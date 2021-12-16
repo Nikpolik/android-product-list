@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Assesment 2</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">Email</string>
+    <string name="product_list_placeholder">Search for your favorite product</string>
+    <string name="product_list_logout">Logout</string>
+    <string name="product_details_share">Share it with a friend</string>
+</resources>
