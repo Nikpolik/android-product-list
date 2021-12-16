@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assesment 2</string>
+    <string name="app_name">Nikos Polykandriotis - Product Hunt</string>
     <string name="password_hint">Password</string>
     <string name="email_hint">Email</string>
     <string name="product_list_placeholder">Search for your favorite product</string>
