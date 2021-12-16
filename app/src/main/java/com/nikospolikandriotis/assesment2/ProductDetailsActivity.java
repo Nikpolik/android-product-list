@@ -55,7 +55,7 @@ public class ProductDetailsActivity extends AbstractActivity {
         //noinspection ResourceType
         int imageId = productDetails.getResourceId(3, R.drawable.product_1);
         Drawable image = res.getDrawable(imageId);
-        if (image == null) {
+        if (image == null || title == null || description == null) {
             return;
         }
 

@@ -63,6 +63,9 @@ public class ProductListActivity extends AbstractActivity {
         super.onPostCreate(savedInstanceState);
 
         TypedArray productIds = getResources().obtainTypedArray(R.array.products);
+        if(productIds == null) {
+            return;
+        }
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view_list);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(productIds,  new RecyclerViewAdapter.Listener() {
