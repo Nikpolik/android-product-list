@@ -1,8 +1,15 @@
 <resources>
-    <string name="app_name">Nikos Polykandriotis - Product Hunt</string>
-    <string name="password_hint">Password</string>
-    <string name="email_hint">Email</string>
-    <string name="product_list_placeholder">Search for your favorite product</string>
-    <string name="product_list_logout">Logout</string>
-    <string name="product_details_share">Share it with a friend</string>
+    <string name="app_name">Nikos Polykandriotis - Movie App</string>
+    <string name="movies_search_placeholder">Search for your favorite movie</string>
+    <string name="movie_details_share">Share it with a friend</string>
+    <string name="movie_list_title">Title: </string>
+    <string name="movie_list_release_date">Release Date: </string>
+    <string name="movie_list_rating">Rating: </string>
+    <string name="movie_list_description">Description: </string>
+    <string name="loren_ipsum_long">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis sodales tortor. Sed at posuere elit, ut cursus lorem.
+        Etiam ac consectetur lacus, eu tincidunt turpis. Nulla at pharetra metus, vitae dictum ex. Quisque tristique semper lectus at fermentum.
+        In tristique ut tellus nec pharetra. Aenean mi turpis, ultricies quis laoreet non, aliquet quis lectus. Aliquam neque tortor, posuere tempus libero ac,
+        venenatis mattis mi. Nunc eget ultricies risus.Vestibulum vulputate venenatis nulla, vitae dignissim magna elementum ut.Maecenas fringilla consectetur dignissim.
+    </string>
 </resources>
