@@ -1,17 +1,14 @@
 package com.nikospolikandriotis.assesment2.recycler;
 
-import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.nikospolikandriotis.assesment2.R;
+import com.nikospolikandriotis.assesment2.network.Movie;
 
 public class RecyclerViewHolder extends BaseRecyclerView {
     private RecyclerViewAdapter.Listener callback;
@@ -22,23 +19,30 @@ public class RecyclerViewHolder extends BaseRecyclerView {
     }
 
     @Override
-    public void bindData(int id) {
-        TextView textView = itemView.findViewById(R.id.product_row_text);
-        Resources res = itemView.getContext().getResources();
-        TypedArray productDetails = res.obtainTypedArray(id);
-        //noinspection ResourceType
-        String title = productDetails.getString(1);
-        //noinspection ResourceType
-        int imageId = productDetails.getResourceId(3, R.drawable.product_1);
-        Drawable image = res.getDrawable(imageId);
-        ImageView imageView = itemView.findViewById(R.id.product_row_img);
-        imageView.setImageDrawable(image);
-        textView.setText(title);
+    public void bindData(Movie movie) {
+        TextView titleView = itemView.findViewById(R.id.movie_row_title);
+        titleView.setText(movie.getOriginalTitle());
+
+        ImageView imageView = itemView.findViewById(R.id.movie_row_image);
+        Glide.with(itemView.getContext()).load(movie.getPosterUrl()).into(imageView);
+
+        TextView dateView = itemView.findViewById((R.id.movie_row_year));
+        if (movie.getReleaseDate() != null) {
+            dateView.setText(movie.getReleaseDateString());
+        } else {
+            dateView.setText("Year not available");
+        }
+
+        TextView ratingView = itemView.findViewById(R.id.movie_row_rating);
+        ratingView.setText(Double.toString(movie.getVoteAverage()) + "/10");
+
+        TextView descriptionView = itemView.findViewById(R.id.movie_row_description);
+        descriptionView.setText(movie.getOverview());
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.onItemClick(v, id);
+                callback.onItemClick(v, movie.getId());
             }
         });
     }

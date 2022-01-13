@@ -1,7 +1,5 @@
 package com.nikospolikandriotis.assesment2.recycler;
 
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nikospolikandriotis.assesment2.R;
+import com.nikospolikandriotis.assesment2.network.Movie;
+
+import java.util.List;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<BaseRecyclerView> {
@@ -18,11 +19,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<BaseRecyclerView> 
     }
 
     @NonNull
-    private TypedArray productIds;
+    private List<Movie> movies;
     private Listener callback;
 
-    public RecyclerViewAdapter(TypedArray productIds, Listener callback) {
-        this.productIds = productIds;
+    public RecyclerViewAdapter(List<Movie> movies, Listener callback) {
+        this.movies = movies;
         this.callback = callback;
     }
 
@@ -35,17 +36,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<BaseRecyclerView> 
 
     @Override
     public void onBindViewHolder(@NonNull BaseRecyclerView holder, int position) {
-        int id = productIds.getResourceId(position, R.array.product1);
-        holder.bindData(id);
+        Movie movie = this.movies.get(position);
+        if(movie == null) {
+            return;
+        }
+
+        holder.bindData(movie);
     }
 
     @Override
     public int getItemCount() {
-        return productIds.length();
+        return movies.size();
     }
 
     @Override
     public int getItemViewType(int position) {
-        return R.layout.product_row;
+        return R.layout.movie_row;
     }
 }
